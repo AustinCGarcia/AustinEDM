@@ -12,4 +12,4 @@ High School: Graduated From Angeles City Science High School
 ## My Project:
 Midterm Lab Task 1: [Data Cleaning and Preparation Using Excel](https://github.com/AustinCGarcia/AustinEDM/blob/main/Midterm%20Lab%20Task%201/task1.md)
 
-Midterm Lab Task 2: [Data Cleaning and Preparation Using POWER QUERY](https://github.com/AustinCGarcia/AustinEDM/blob/main/Midterm%20Lab%20Task%202/task2)
+Midterm Lab Task 2: [Data Cleaning and Preparation Using POWER QUERY](https://github.com/AustinCGarcia/AustinEDM/blob/main/Midterm%20Lab%20Task%202/task2.md)
