@@ -15,4 +15,4 @@ With my INFP personality, I'm passionate about using my skills to help others an
 
 - Midterm Lab Task 2: [Data Cleaning and Preparation Using POWER QUERY](https://austincgarcia.github.io/Midterm-Lab-Task-2)
 
-- Midterm Lab Task 3: [Data Cleaning and Preparation using POWER QUERY](https://austincgarcia.github.io/Midterm-Lab-Task-3/)
+- Midterm Lab Task 3: [Creating PIVOT TABLE and DASHBOARD](https://austincgarcia.github.io/Midterm-Lab-Task-3/)
