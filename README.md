@@ -11,6 +11,8 @@ With my INFP personality, I'm passionate about using my skills to help others an
 - High School: Graduated From Angeles City Science High School
 
 ## My Project:
-- Midterm Lab Task 1: [Data Cleaning and Preparation Using Excel](https://github.com/AustinCGarcia/AustinEDM/blob/main/Midterm%20Lab%20Task%201/task1.md)
+- Midterm Lab Task 1: [Data Cleaning and Preparation Using Excel](https://austincgarcia.github.io/Midterm-Lab-Task-1/)
 
-- Midterm Lab Task 2: [Data Cleaning and Preparation Using POWER QUERY](https://github.com/AustinCGarcia/AustinEDM/blob/main/Midterm%20Lab%20Task%202/task2.md)
+- Midterm Lab Task 2: [Data Cleaning and Preparation Using POWER QUERY](https://austincgarcia.github.io/Midterm-Lab-Task-2)
+
+- Midterm Lab Task 3: [Data Cleaning and Preparation using POWER QUERY](https://austincgarcia.github.io/Midterm-Lab-Task-3/)
