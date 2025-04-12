@@ -21,17 +21,53 @@
       line-height: 1.6;
     }
 
+    /* Full-screen loading screen with progress bar */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .loading-bar {
+      width: 80%;
+      height: 5px;
+      background-color: #555;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .loading-bar-inner {
+      width: 0;
+      height: 100%;
+      background-color: #00f0ff;
+      border-radius: 5px;
+    }
+
     header {
-      background: #0a0a0a;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #0a0a0a, #111);
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 0 10px white;
+      z-index: 1000;
     }
 
     header h1 {
       font-size: 1.8rem;
+      color: #fff;
     }
 
     nav a {
@@ -47,21 +83,34 @@
     }
 
     .hero {
-      text-align: center;
-      padding: 60px 20px;
+      width: 100vw;
+      margin-top: 100px;
+      padding: 80px 0;
       background: rgba(255, 255, 255, 0.05);
+      text-align: center;
     }
 
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
+      background: linear-gradient(270deg, white, #00f0ff, white);
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorFlow 5s infinite linear;
+    }
+
+    @keyframes colorFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .hero p {
       font-size: 1.1rem;
     }
 
-    section {
+    section:not(.hero) {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
@@ -122,13 +171,17 @@
       margin-top: 20px;
     }
 
-    /* ✅ ORIGINAL COLOR ICONS (no filters) */
+    a:focus, a:hover, a:active {
+      outline: none !important;
+      border: none !important;
+    }
+
     .social-icons a img {
       width: 32px;
       height: 32px;
       margin-right: 15px;
-      transition: transform 0.3s ease;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     .social-icons a img:hover {
@@ -172,6 +225,15 @@
   </style>
 </head>
 <body>
+
+  <!-- Full-Screen Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <h2></h2>
+    <div class="loading-bar">
+      <div class="loading-bar-inner" id="loadingBar"></div>
+    </div>
+  </div>
+
   <header>
     <h1>EDM Portfolio</h1>
     <nav>
@@ -193,7 +255,6 @@
       <div class="about-me-text">
         <p>Hi, I'm Austin! A BSIS student at The City College of Angeles, driven to harness technology for positive change. I enjoy outdoor cycling and express my ideas through creative, meaningful projects. As an INFP, I’m passionate about helping others and collaborating on impactful work. Let’s build something great together!</p>
 
-        <!-- Social Icons -->
         <div class="social-icons">
           <a href="https://facebook.com/austinkrl.x" target="_blank" title="Facebook">
             <img src="https://raw.githubusercontent.com/AustinCGarcia/AustinEDM/refs/heads/main/images/1.png" alt="Facebook Icon">
@@ -202,7 +263,7 @@
             <img src="https://raw.githubusercontent.com/AustinCGarcia/AustinEDM/refs/heads/main/images/3.png" alt="Instagram Icon">
           </a>
           <a href="https://github.com/AustinCGarcia" target="_blank" title="GitHub">
-            <img src="https://raw.githubusercontent.com/AustinCGarcia/AustinEDM/refs/heads/main/images/2.png" alt="GitHub Icon">
+            <img src="https://raw.githubusercontent.com/AustinCGarcia/AustinEDM/main/images/Untitled%20design.png" alt="GitHub Icon">
           </a>
         </div>
       </div>
@@ -232,5 +293,31 @@
   <footer>
     <p>© 2025 Austin's EDM Portfolio. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Load progress bar and fade out the loading screen after 3 seconds
+    window.addEventListener('load', function() {
+      var progressBar = document.getElementById('loadingBar');
+      var loadingScreen = document.getElementById('loadingScreen');
+      var width = 0;
+      
+      var interval = setInterval(function() {
+        if (width >= 100) {
+          clearInterval(interval);
+          setTimeout(function() {
+            loadingScreen.style.transition = 'opacity 1s ease-out';
+            loadingScreen.style.opacity = '0';
+            setTimeout(function() {
+              loadingScreen.style.display = 'none';
+            }, 1000);
+          }, 500); // Wait for the bar to fill before fading out
+        } else {
+          width++;
+          progressBar.style.width = width + '%';
+        }
+      }, 30); // Adjust to make the progress bar fill faster or slower
+    });
+  </script>
+
 </body>
 </html>
