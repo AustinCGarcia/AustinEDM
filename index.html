@@ -7,6 +7,7 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
     * {
       margin: 0;
@@ -49,6 +50,24 @@
       height: 100%;
       background-color: #00f0ff;
       border-radius: 5px;
+    }
+
+    .skip-btn {
+      margin-top: 30px;
+      padding: 12px 30px; /* Increased padding for a longer button */
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #00f0ff; /* Transparent background with border */
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .skip-btn:hover {
+      background-color: #00f0ff;
+      color: #000;
     }
 
     header {
@@ -228,10 +247,10 @@
 
   <!-- Full-Screen Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
-    <h2></h2>
     <div class="loading-bar">
       <div class="loading-bar-inner" id="loadingBar"></div>
     </div>
+    <button class="skip-btn" id="skipBtn">Skip</button>
   </div>
 
   <header>
@@ -253,7 +272,7 @@
     <div class="about-me-container">
       <img src="https://raw.githubusercontent.com/AustinCGarcia/AustinEDM/main/images/vspsGRAD1_0232%20FRAME%208R%20EDITED.jpg" alt="2x2 Photo" class="about-me-photo">
       <div class="about-me-text">
-        <p>Hi, I'm Austin! BSIS student at The City College of Angeles, I'm driven to harness technology for positive change. In my free time, I enjoy outdoor cycling. With my INFP personality, I'm passionate about using my skills to help others and create meaningful impact. Let's collaborate and make a difference!</p>
+        <p>Hi, I'm Austin! A BSIS student at The City College of Angeles, driven to harness technology for positive change. I enjoy outdoor cycling and express my ideas through creative, meaningful projects. As an INFP, I’m passionate about helping others and collaborating on impactful work. Let’s build something great together!</p>
 
         <div class="social-icons">
           <a href="https://facebook.com/austinkrl.x" target="_blank" title="Facebook">
@@ -299,8 +318,10 @@
     window.addEventListener('load', function() {
       var progressBar = document.getElementById('loadingBar');
       var loadingScreen = document.getElementById('loadingScreen');
+      var skipBtn = document.getElementById('skipBtn');
       var width = 0;
       
+      // Progress bar animation
       var interval = setInterval(function() {
         if (width >= 100) {
           clearInterval(interval);
@@ -316,6 +337,16 @@
           progressBar.style.width = width + '%';
         }
       }, 30); // Adjust to make the progress bar fill faster or slower
+
+      // Skip button functionality
+      skipBtn.addEventListener('click', function() {
+        clearInterval(interval); // Stop the progress bar animation
+        loadingScreen.style.transition = 'opacity 1s ease-out';
+        loadingScreen.style.opacity = '0';
+        setTimeout(function() {
+          loadingScreen.style.display = 'none';
+        }, 1000);
+      });
     });
   </script>
 
